@@ -1,33 +1,29 @@
 import Phaser from 'phaser';
-import logoImg from './assets/logo.png';
+import World from './World';
+import Manager from './Manager';
 
 export default class GameScene extends Phaser.Scene {
 
 	constructor(config) {
 		super(config);
-		console.log('GameScene, config: ' + config);
+		console.log('GameScene, config', config);
 
 	}
 
 	preload() {
-		this.load.image('logo', logoImg);
+		this.load.tilemapTiledJSON('map', 'src/assets/maze.json');
+		this.load.image('tiles', 'src/assets/tiles.png');
+		this.load.image('car', 'src/assets/car.png');
+	}
+
+	init() {
+		// this.physics.startSystem(Phaser.Physics.ARCADE);
 	}
 
 	create() {
-		const logo = this.add.image(400, 150, 'logo');
 
-		this.tweens.add({
-			targets: logo,
-			y: 450,
-			duration: 2000,
-			ease: 'Power2',
-			yoyo: true,
-			loop: -1
-		});
-	}
-
-	update(time) {
-		// console.log('update ' + time);
+		this.world = new World(this);
+		this.manager = new Manager(this);
 	}
 
 }
