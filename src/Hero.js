@@ -3,7 +3,7 @@ import Constants from './Constants';
 
 export default class Hero extends Phaser.GameObjects.Image {
 	constructor(world) {
-		super(world.scene, Constants.tileSize * 1.5, Constants.tileSize * 1.5, 'car');
+		super(world.scene, Constants.spawnX * Constants.tileSize + Constants.tileSize / 2, Constants.spawnY * Constants.tileSize + Constants.tileSize / 2, 'car');
 		console.log('create hero');
 
 		//  Left

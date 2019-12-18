@@ -5,8 +5,8 @@ import Manager from './Manager';
 export default class GameScene extends Phaser.Scene {
 
 	constructor(config) {
-		super(config);
 		console.log('GameScene, config', config);
+		super(config);
 
 	}
 
