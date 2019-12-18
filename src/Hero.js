@@ -1,72 +1,69 @@
 import Phaser from 'phaser';
+import Constants from './Constants';
 
 export default class Hero extends Phaser.GameObjects.Image {
-	constructor(scene) {
-		super(scene, 32 + 16, 32 + 16, 'car');
+	constructor(world) {
+		super(world.scene, Constants.tileSize * 1.5, Constants.tileSize * 1.5, 'car');
 		console.log('create hero');
 
 		//  Left
-		scene.input.keyboard.on('keydown_A', (event) => {
+		world.scene.input.keyboard.on('keydown_A', (event) => {
 
-			var tile = scene.layer.getTileAtWorldXY(this.x - 32, this.y, true);
+			var tile = world.layer.getTileAtWorldXY(this.x - Constants.tileSize, this.y, true);
 
-			if (tile.index === 20) {
+			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move
 			}
 			else {
-				this.x -= 32;
+				this.x -= Constants.tileSize;
 				this.angle = 180;
 			}
 
 		});
 
 		//  Right
-		scene.input.keyboard.on('keydown_D', (event) => {
+		world.scene.input.keyboard.on('keydown_D', (event) => {
 
-			var tile = scene.layer.getTileAtWorldXY(this.x + 32, this.y, true);
+			var tile = world.layer.getTileAtWorldXY(this.x + Constants.tileSize, this.y, true);
 
-			if (tile.index === 20) {
+			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move
 			}
 			else {
-				this.x += 32;
+				this.x += Constants.tileSize;
 				this.angle = 0;
 			}
 
 		});
 
 		//  Up
-		scene.input.keyboard.on('keydown_W', (event) => {
+		world.scene.input.keyboard.on('keydown_W', (event) => {
 
-			var tile = scene.layer.getTileAtWorldXY(this.x, this.y - 32, true);
+			var tile = world.layer.getTileAtWorldXY(this.x, this.y - Constants.tileSize, true);
 
-			if (tile.index === 20) {
+			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move
 			}
 			else {
-				this.y -= 32;
+				this.y -= Constants.tileSize;
 				this.angle = -90;
 			}
 
 		});
 
 		//  Down
-		scene.input.keyboard.on('keydown_S', (event) => {
+		world.scene.input.keyboard.on('keydown_S', (event) => {
 
-			var tile = scene.layer.getTileAtWorldXY(this.x, this.y + 32, true);
+			var tile = world.layer.getTileAtWorldXY(this.x, this.y + Constants.tileSize, true);
 
-			if (tile.index === 20) {
+			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move
 			}
 			else {
-				this.y += 32;
+				this.y += Constants.tileSize;
 				this.angle = 90;
 			}
 
 		});
-	}
-
-	create() {
-
 	}
 }
