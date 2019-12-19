@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Constants from './Constants';
 
-export default class Hero extends Phaser.GameObjects.Sprite {
+export default class Hero extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene) {
 		super(scene, Constants.spawnX * Constants.tileSize + Constants.tileSize / 2, Constants.spawnY * Constants.tileSize + Constants.tileSize / 2, 'hero');
 
@@ -32,6 +32,13 @@ export default class Hero extends Phaser.GameObjects.Sprite {
 			frameRate: 20,
 			repeat: 3
 		});
+	}
+
+	hit(bullet) {
+		console.log('collided: ' + bullet);
+
+		alert('Bisch tot');
+		this.destroy(true);
 	}
 
 	move(direction) {
