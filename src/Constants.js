@@ -10,5 +10,6 @@ export default {
 	spawnY: 38,
 	tilesVisibleX: 20,
 	tilesVisibleY: 16,
-	debounceMovementInMs: 250
+	debounceMovementInMs: 250,
+	audioFilesToLoad: ["arsch", "assozial", "bier", "saupack", "schaffendir", "schwiipack", "wixxer"]
 };

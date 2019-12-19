@@ -1,8 +1,9 @@
 import Constants from './Constants';
 
-const checkTileAndMove = (tile, direction, player) => {
+const checkTileAndMove = (tile, direction, player, scene) => {
 	if (Constants.blockedTileIDs.includes(tile.index)) {
 		//  Blocked, we can't move
+		scene.sound.play('saupack');
 	} else if (Constants.victoryTileIDs.includes(tile.index)) {
 		alert('victory!');
 	} else if (tile.index === Constants.trapTileID) {
@@ -24,7 +25,7 @@ export default class InputController {
 		scene.input.keyboard.on('keydown_A', (event) => {
 			let tile = scene.world.layer.getTileAtWorldXY(player.x - Constants.tileSize, player.y, true);
 
-			checkTileAndMove(tile, Phaser.LEFT, player);
+			checkTileAndMove(tile, Phaser.LEFT, player, scene);
 
 		});
 
@@ -32,21 +33,21 @@ export default class InputController {
 		scene.input.keyboard.on('keydown_D', (event) => {
 			let tile = scene.world.layer.getTileAtWorldXY(player.x + Constants.tileSize, player.y, true);
 
-			checkTileAndMove(tile, Phaser.RIGHT, player);
+			checkTileAndMove(tile, Phaser.RIGHT, player, scene);
 		});
 
 		//  Up
 		scene.input.keyboard.on('keydown_W', (event) => {
 			let tile = scene.world.layer.getTileAtWorldXY(player.x, player.y - Constants.tileSize, true);
 
-			checkTileAndMove(tile, Phaser.UP, player);
+			checkTileAndMove(tile, Phaser.UP, player, scene);
 		});
 
 		//  Down
 		scene.input.keyboard.on('keydown_S', (event) => {
 			let tile = scene.world.layer.getTileAtWorldXY(player.x, player.y + Constants.tileSize, true);
 
-			checkTileAndMove(tile, Phaser.DOWN, player);
+			checkTileAndMove(tile, Phaser.DOWN, player, scene);
 		});
 	}
 }

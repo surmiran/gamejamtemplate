@@ -17,6 +17,10 @@ export default class GameScene extends Phaser.Scene {
 		this.load.image('tiles', 'src/assets/tileset.png');
 		this.load.image('car', 'src/assets/car.png');
 
+		for (let filename of Constants.audioFilesToLoad) {
+			this.load.audio(filename, `src/assets/audio/${filename}.mp3`);
+		}
+
 		this.load.spritesheet('hero', 'src/assets/hero.png', {frameWidth: 32, frameHeight: 32, endFrame: 15});
 	}
 
@@ -33,6 +37,17 @@ export default class GameScene extends Phaser.Scene {
 		this.cameras.main.setSize(widthInPixel, heightInPixel);
 
 		new InputController(this.world.player, this);
+
+		/*let backgroundMusic = this.sound.add('bier', {
+			mute: false,
+			volume: 1,
+			rate: 1,
+			detune: 0,
+			seek: 0,
+			loop: true,
+			delay: 0
+		});
+		backgroundMusic.play()*/
 	}
 
 }
