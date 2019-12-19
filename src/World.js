@@ -9,6 +9,10 @@ export default class World {
 
 		this.player = new Hero(scene);
 		this.scene.add.existing(this.player);
+
+		//	Camera
+		scene.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+		scene.cameras.main.startFollow(this.player);
 	}
 
 	update(time) {
