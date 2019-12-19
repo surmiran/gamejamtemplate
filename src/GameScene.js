@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import World from './World';
 import Manager from './Manager';
+import InputController from './InputController';
 
 export default class GameScene extends Phaser.Scene {
 
@@ -24,6 +25,8 @@ export default class GameScene extends Phaser.Scene {
 
 		this.world = new World(this);
 		this.manager = new Manager(this);
+
+		new InputController(this.world.player, this);
 	}
 
 }
