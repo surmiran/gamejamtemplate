@@ -15,6 +15,8 @@ export default class GameScene extends Phaser.Scene {
 		this.load.tilemapTiledJSON('map', 'src/assets/maze.json');
 		this.load.image('tiles', 'src/assets/tiles.png');
 		this.load.image('car', 'src/assets/car.png');
+
+		this.load.spritesheet('hero', 'src/assets/hero.png', { frameWidth: 32, frameHeight: 32, endFrame: 15 });
 	}
 
 	init() {
