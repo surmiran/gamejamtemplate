@@ -7,7 +7,7 @@ export default class World {
 		this.tileset = this.map.addTilesetImage('tiles');
 		this.layer = this.map.createStaticLayer(0, this.tileset, 0, 0);
 
-		this.player = new Hero(this);
+		this.player = new Hero(scene);
 		this.scene.add.existing(this.player);
 	}
 

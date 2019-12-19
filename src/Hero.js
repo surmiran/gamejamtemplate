@@ -2,8 +2,8 @@ import Phaser from 'phaser';
 import Constants from './Constants';
 
 export default class Hero extends Phaser.GameObjects.Image {
-	constructor(world) {
-		super(world.scene, Constants.spawnX * Constants.tileSize + Constants.tileSize / 2, Constants.spawnY * Constants.tileSize + Constants.tileSize / 2, 'car');
+	constructor(scene) {
+		super(scene, Constants.spawnX * Constants.tileSize + Constants.tileSize / 2, Constants.spawnY * Constants.tileSize + Constants.tileSize / 2, 'car');
 	}
 
 	move(direction) {
