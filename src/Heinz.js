@@ -4,10 +4,18 @@ import Bullet from "./Bullet";
 
 export default class Heinz extends Phaser.GameObjects.Sprite {
 	constructor(scene, bulletGroup) {
-		super(scene, Constants.heinzX * Constants.tileSize + Constants.tileSize / 2, Constants.heinzY * Constants.tileSize + Constants.tileSize / 2, 'car');
+		super(scene, Constants.heinzX * Constants.tileSize + Constants.tileSize / 2, Constants.heinzY * Constants.tileSize + Constants.tileSize / 2, 'heinz');
 		this.timePast = 0;
 		this.scene = scene;
 		this.bulletGroup = bulletGroup;
+
+		scene.anims.create({
+			key: 'heinz',
+			frames: scene.anims.generateFrameNumbers('heinz', {start: 0, end: 7, first: 0}),
+			frameRate: 10,
+			repeat: -1
+		});
+		this.anims.play('heinz');
 	}
 
 	shoot(){

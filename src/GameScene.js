@@ -16,7 +16,6 @@ export default class GameScene extends Phaser.Scene {
 		this.load.tilemapTiledJSON('map', 'src/assets/maze.json');
 		this.load.image('tiles', 'src/assets/tileset.png');
 		this.load.image('car', 'src/assets/car.png');
-		this.load.image('bullet', 'src/assets/bullet.png');
 
 		for (let filename of Constants.audioFilesToLoad) {
 			this.load.audio(filename, `src/assets/audio/${filename}.mp3`);
@@ -24,6 +23,8 @@ export default class GameScene extends Phaser.Scene {
 
 		this.load.spritesheet('hero', 'src/assets/hero.png', {frameWidth: 32, frameHeight: 32, endFrame: 15});
 		this.load.spritesheet('beer', 'src/assets/bier.png', {frameWidth: 32, frameHeight: 32, endFrame: 7});
+		this.load.spritesheet('bullet', 'src/assets/saupack.png', {frameWidth: 32, frameHeight: 32, endFrame: 5});
+		this.load.spritesheet('heinz', 'src/assets/heinz.png', {frameWidth: 32, frameHeight: 32, endFrame: 2});
 	}
 
 	init() {

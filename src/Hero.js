@@ -5,6 +5,7 @@ export default class Hero extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene) {
 		super(scene, Constants.spawnX * Constants.tileSize + Constants.tileSize / 2, Constants.spawnY * Constants.tileSize + Constants.tileSize / 2, 'hero');
 
+		this.scene = scene;
 		console.log('create hero animations');
 		this.movementAllowed = true;
 
@@ -37,7 +38,9 @@ export default class Hero extends Phaser.Physics.Arcade.Sprite {
 	hit(bullet) {
 		console.log('collided: ' + bullet);
 
-		alert('Bisch tot');
+		let fluch = ['arsch', 'assozial', 'saupack', 'schaffendir', 'schwiipack', 'wixxer'];
+		let fluchID = Math.floor(Math.random() * fluch.length - 1);
+		this.scene.sound.play(fluch[fluchID]);
 		this.destroy(true);
 	}
 

@@ -3,7 +3,6 @@ import Constants from './Constants';
 const checkTileAndMove = (tile, direction, player, scene) => {
 	if (Constants.blockedTileIDs.includes(tile.index)) {
 		//  Blocked, we can't move
-		scene.sound.play('saupack');
 	} else if (Constants.victoryTileIDs.includes(tile.index)) {
 		alert('victory!');
 	} else if (tile.index === Constants.trapTileID) {

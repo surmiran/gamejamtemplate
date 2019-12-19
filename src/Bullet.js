@@ -17,6 +17,14 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
 		//get physics world bounds to check if bullet is out bounds to be destroyed
 		this.bounds = scene.physics.world.bounds;
+
+		scene.anims.create({
+			key: 'bullet',
+			frames: scene.anims.generateFrameNumbers('bullet', {start: 0, end: 5, first: 0}),
+			frameRate: 10,
+			repeat: -1
+		});
+		this.anims.play('bullet');
 	}
 
 	update(time, delta) {
