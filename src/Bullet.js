@@ -21,7 +21,8 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
 	update(time, delta) {
 		//check if bullet is out of world bounds
-		if(!this.bounds.contains(this.x, this.y)){
+		if(this.x > 640 || this.y > 1280){
+		// if(!this.bounds.contains(this.x, this.y)){
 			this.destroy(true);
 		}
 	}
