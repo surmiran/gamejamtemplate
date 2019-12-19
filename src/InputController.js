@@ -9,7 +9,7 @@ export default class InputController {
 
 			let tile = scene.world.layer.getTileAtWorldXY(player.x - Constants.tileSize, player.y, true);
 
-			if (tile.index === Constants.blockedTileID) {
+			if (Constants.blockedTileIDs.includes(tile.index)) {
 				//  Blocked, we can't move
 			}
 			else {
@@ -22,7 +22,7 @@ export default class InputController {
 
 			let tile = scene.world.layer.getTileAtWorldXY(player.x + Constants.tileSize, player.y, true);
 
-			if (tile.index === Constants.blockedTileID) {
+			if (Constants.blockedTileIDs.includes(tile.index)) {
 				//  Blocked, we can't move
 			}
 			else {
@@ -35,7 +35,7 @@ export default class InputController {
 
 			let tile = scene.world.layer.getTileAtWorldXY(player.x, player.y - Constants.tileSize, true);
 
-			if (tile.index === Constants.blockedTileID) {
+			if (Constants.blockedTileIDs.includes(tile.index)) {
 				//  Blocked, we can't move
 			}
 			else {
@@ -48,7 +48,7 @@ export default class InputController {
 
 			let tile = scene.world.layer.getTileAtWorldXY(player.x, player.y + Constants.tileSize, true);
 
-			if (tile.index === Constants.blockedTileID) {
+			if (Constants.blockedTileIDs.includes(tile.index)) {
 				//  Blocked, we can't move
 			}
 			else {
