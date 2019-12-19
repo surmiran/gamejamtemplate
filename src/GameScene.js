@@ -22,6 +22,7 @@ export default class GameScene extends Phaser.Scene {
 		}
 
 		this.load.spritesheet('hero', 'src/assets/hero.png', {frameWidth: 32, frameHeight: 32, endFrame: 15});
+		this.load.spritesheet('beer', 'src/assets/bier.png', {frameWidth: 32, frameHeight: 32, endFrame: 7});
 	}
 
 	init() {
