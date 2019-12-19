@@ -4,5 +4,6 @@ export default {
 	spawnX: 18,
 	spawnY: 38,
 	tilesVisibleX: 20,
-	tilesVisibleY: 16
+	tilesVisibleY: 16,
+	debounceMovementInMs: 250
 };

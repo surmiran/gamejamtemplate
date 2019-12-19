@@ -7,7 +7,7 @@ export default class InputController {
 		//  Left
 		scene.input.keyboard.on('keydown_A', (event) => {
 
-			var tile = scene.world.layer.getTileAtWorldXY(player.x - Constants.tileSize, player.y, true);
+			let tile = scene.world.layer.getTileAtWorldXY(player.x - Constants.tileSize, player.y, true);
 
 			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move
@@ -20,7 +20,7 @@ export default class InputController {
 		//  Right
 		scene.input.keyboard.on('keydown_D', (event) => {
 
-			var tile = scene.world.layer.getTileAtWorldXY(player.x + Constants.tileSize, player.y, true);
+			let tile = scene.world.layer.getTileAtWorldXY(player.x + Constants.tileSize, player.y, true);
 
 			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move
@@ -33,7 +33,7 @@ export default class InputController {
 		//  Up
 		scene.input.keyboard.on('keydown_W', (event) => {
 
-			var tile = scene.world.layer.getTileAtWorldXY(player.x, player.y - Constants.tileSize, true);
+			let tile = scene.world.layer.getTileAtWorldXY(player.x, player.y - Constants.tileSize, true);
 
 			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move
@@ -46,7 +46,7 @@ export default class InputController {
 		//  Down
 		scene.input.keyboard.on('keydown_S', (event) => {
 
-			var tile = scene.world.layer.getTileAtWorldXY(player.x, player.y + Constants.tileSize, true);
+			let tile = scene.world.layer.getTileAtWorldXY(player.x, player.y + Constants.tileSize, true);
 
 			if (tile.index === Constants.blockedTileID) {
 				//  Blocked, we can't move

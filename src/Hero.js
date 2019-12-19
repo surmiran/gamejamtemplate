@@ -6,6 +6,7 @@ export default class Hero extends Phaser.GameObjects.Sprite {
 		super(scene, Constants.spawnX * Constants.tileSize + Constants.tileSize / 2, Constants.spawnY * Constants.tileSize + Constants.tileSize / 2, 'hero');
 
 		console.log('create hero animations');
+		this.movementAllowed = true;
 
 		scene.anims.create({
 			key: 'down',
@@ -34,23 +35,29 @@ export default class Hero extends Phaser.GameObjects.Sprite {
 	}
 
 	move(direction) {
-		switch (direction) {
-			case Phaser.LEFT:
-				this.x -= Constants.tileSize;
-				this.anims.play('left');
-				break;
-			case Phaser.RIGHT:
-				this.x += Constants.tileSize;
-				this.anims.play('right');
-				break;
-			case Phaser.UP:
-				this.y -= Constants.tileSize;
-				this.anims.play('up');
-				break;
-			case Phaser.DOWN:
-				this.y += Constants.tileSize;
-				this.anims.play('down');
-				break;
+		if (this.movementAllowed) {
+			switch (direction) {
+				case Phaser.LEFT:
+					this.x -= Constants.tileSize;
+					this.anims.play('left');
+					break;
+				case Phaser.RIGHT:
+					this.x += Constants.tileSize;
+					this.anims.play('right');
+					break;
+				case Phaser.UP:
+					this.y -= Constants.tileSize;
+					this.anims.play('up');
+					break;
+				case Phaser.DOWN:
+					this.y += Constants.tileSize;
+					this.anims.play('down');
+					break;
+			}
+			this.movementAllowed = false;
+			setTimeout(() => {
+				this.movementAllowed = true;
+			}, Constants.debounceMovementInMs);
 		}
 	}
 }
