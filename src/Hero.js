@@ -5,29 +5,29 @@ export default class Hero extends Phaser.GameObjects.Sprite {
 	constructor(scene) {
 		super(scene, Constants.spawnX * Constants.tileSize + Constants.tileSize / 2, Constants.spawnY * Constants.tileSize + Constants.tileSize / 2, 'hero');
 
-		console.log("create hero animations")
+		console.log('create hero animations');
 
 		scene.anims.create({
 			key: 'down',
-			frames: scene.anims.generateFrameNumbers('hero', { start: 0, end: 4, first: 0 }),
+			frames: scene.anims.generateFrameNumbers('hero', {start: 0, end: 4, first: 0}),
 			frameRate: 20,
 			repeat: 3
 		});
 		scene.anims.create({
 			key: 'right',
-			frames: scene.anims.generateFrameNumbers('hero', { start: 5, end: 7, first: 5 }),
+			frames: scene.anims.generateFrameNumbers('hero', {start: 5, end: 7, first: 5}),
 			frameRate: 20,
 			repeat: 3
 		});
 		scene.anims.create({
 			key: 'left',
-			frames: scene.anims.generateFrameNumbers('hero', { start: 8, end: 10, first: 8 }),
+			frames: scene.anims.generateFrameNumbers('hero', {start: 8, end: 10, first: 8}),
 			frameRate: 20,
 			repeat: 3
 		});
 		scene.anims.create({
 			key: 'up',
-			frames: scene.anims.generateFrameNumbers('hero', { start: 11, end: 15, first: 11 }),
+			frames: scene.anims.generateFrameNumbers('hero', {start: 11, end: 15, first: 11}),
 			frameRate: 20,
 			repeat: 3
 		});
