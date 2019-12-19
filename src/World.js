@@ -2,6 +2,7 @@ import Hero from './Hero';
 import Heinz from './Heinz';
 import Beer from './Beer';
 import Constants from './Constants';
+import Bullet from './Bullet';
 
 export default class World {
 	constructor(scene) {
@@ -14,6 +15,10 @@ export default class World {
 		const bullets = scene.add.group({
 			runChildUpdate: true
 		});
+		//create group for beers
+		this.beerGroup = scene.add.group({
+			runChildUpdate: true
+		});
 
 		this.player = new Hero(scene);
 		this.scene.add.existing(this.player);
@@ -23,7 +28,6 @@ export default class World {
 		this.heinz = new Heinz(scene, bullets);
 		this.scene.add.existing(this.heinz);
 
-
 		//create collision listener for bullets hitting player
 		scene.physics.add.overlap(this.player, bullets, (object1, object2) => {
 			//find bullet object
@@ -32,6 +36,15 @@ export default class World {
 			this.player.hit(bullet);
 			//destroy bullet after player was hit
 			bullet.destroy(true);
+		});
+		//create collision listener for beers
+		scene.physics.add.overlap(this.player, this.beerGroup, (object1, object2) => {
+			//find bullet object
+			let beer = this.beerGroup.contains(object1) ? object1 : object2;
+			//hit player with bullet
+			this.player.powerUp(beer);
+			//destroy bullet after player was hit
+			beer.destroy(true);
 		});
 
 		//	Camera
@@ -57,6 +70,7 @@ export default class World {
 			let beer = new Beer(scene, tile.pixelX, tile.pixelY);
 			console.log('beer', beer);
 			this.scene.add.existing(beer);
+			this.beerGroup.add(beer);
 			// todo: beer collider
 		}
 	}

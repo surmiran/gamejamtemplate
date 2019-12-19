@@ -8,9 +8,6 @@ const checkTileAndMove = (tile, direction, player, scene) => {
 	} else if (tile.index === Constants.trapTileID) {
 		alert('trap triggered?');
 		player.move(direction);
-	} else if (tile.index === Constants.upgradeTileID) {
-		alert('upgrade triggered?');
-		player.move(direction);
 	} else {
 		player.move(direction);
 	}

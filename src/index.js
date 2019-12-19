@@ -9,7 +9,7 @@ const config = {
   height: Constants.tilesVisibleY * Constants.tileSize,
   physics: {
     default: 'arcade',
-    arcade: {debug: true}
+    arcade: {debug: false}
   },
   scene: [GameScene]
 };

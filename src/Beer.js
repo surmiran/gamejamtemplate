@@ -1,9 +1,12 @@
 import Phaser from 'phaser';
 import Constants from './Constants';
 
-export default class Beer extends Phaser.GameObjects.Sprite {
+export default class Beer extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, pixelX, pixelY) {
 		super(scene, pixelX + 16, pixelY + 16, 'beer');
+
+		scene.physics.add.existing(this);
+		scene.add.existing(this);
 
 		console.log('create beer animations');
 

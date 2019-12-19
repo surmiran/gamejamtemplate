@@ -44,6 +44,12 @@ export default class Hero extends Phaser.Physics.Arcade.Sprite {
 		this.destroy(true);
 	}
 
+	powerUp(beer) {
+		console.log('beer:', beer);
+
+		this.scene.sound.play('bier');
+	}
+
 	move(direction) {
 		if (this.movementAllowed) {
 			switch (direction) {
