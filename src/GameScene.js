@@ -16,6 +16,7 @@ export default class GameScene extends Phaser.Scene {
 		this.load.tilemapTiledJSON('map', 'src/assets/maze.json');
 		this.load.image('tiles', 'src/assets/tileset.png');
 		this.load.image('car', 'src/assets/car.png');
+		this.load.image('bullet', 'src/assets/bullet.png');
 
 		for (let filename of Constants.audioFilesToLoad) {
 			this.load.audio(filename, `src/assets/audio/${filename}.mp3`);
@@ -49,6 +50,10 @@ export default class GameScene extends Phaser.Scene {
 			delay: 0
 		});
 		backgroundMusic.play()*/
+	}
+
+	update(time, delta){
+		this.world.update(time, delta);
 	}
 
 }
