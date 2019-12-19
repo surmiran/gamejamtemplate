@@ -37,6 +37,9 @@ export default class Hero extends Phaser.Physics.Arcade.Sprite {
 
 	hit(bullet) {
 		console.log('collided: ' + bullet);
+		if (this.cannotDie) {
+			return;
+		}
 
 		let fluch = ['arsch', 'assozial', 'saupack', 'schaffendir', 'schwiipack', 'wixxer'];
 		let fluchID = Math.floor(Math.random() * fluch.length - 1);
@@ -48,6 +51,10 @@ export default class Hero extends Phaser.Physics.Arcade.Sprite {
 		console.log('beer:', beer);
 
 		this.scene.sound.play('bier');
+		this.cannotDie = true;
+		setTimeout(() => {
+			this.cannotDie = false;
+		}, 5000);
 	}
 
 	move(direction) {
